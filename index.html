@@ -1,0 +1,517 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>IEF 411 Midterm Review</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@600;700;800&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: sticky section nav over full-width bands; one reading column (max 880px), tables scroll inside their own box. */
+:root{
+  --bg:#f3f5f6; --surface:#ffffff; --ink:#14262b; --muted:#566a70; --line:#d9e0e2;
+  --accent:#0b6b63; --accent-ink:#ffffff; --accent-soft:#dff1ee;
+  --good:#1a7f45; --good-soft:#e1f3e8; --bad:#b3261e; --bad-soft:#fbe4e2; --warn:#8a5a00; --warn-soft:#fbefd3;
+  --display:"Noto Kufi Arabic","IBM Plex Sans Arabic",system-ui,sans-serif;
+  --body:"IBM Plex Sans Arabic",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0d1719; --surface:#142225; --ink:#e6eef0; --muted:#94a8ae; --line:#25383c;
+  --accent:#4fc3b8; --accent-ink:#06201d; --accent-soft:#123834;
+  --good:#5ccf8e; --good-soft:#12301f; --bad:#ff8a80; --bad-soft:#3a1815; --warn:#f0c060; --warn-soft:#35290f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0d1719; --surface:#142225; --ink:#e6eef0; --muted:#94a8ae; --line:#25383c;
+  --accent:#4fc3b8; --accent-ink:#06201d; --accent-soft:#123834;
+  --good:#5ccf8e; --good-soft:#12301f; --bad:#ff8a80; --bad-soft:#3a1815; --warn:#f0c060; --warn-soft:#35290f; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.75;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0}
+.wrap{max-width:880px;margin-inline:auto;min-width:0}
+h1,h2,h3{font-family:var(--display);line-height:1.4;text-wrap:balance;margin:0}
+p{margin:0 0 .9em}
+a{color:var(--accent)}
+bdi,.t{font-weight:600}
+.mono{font-family:var(--mono);font-size:.82em;letter-spacing:.02em}
+
+/* header */
+header.top{padding-block:40px 24px;border-bottom:1px solid var(--line)}
+.eyebrow{font-family:var(--mono);font-size:.78rem;color:var(--accent);letter-spacing:.08em;direction:ltr;text-align:right;margin-bottom:10px}
+h1{font-size:clamp(1.7rem,5.5vw,2.5rem);font-weight:800}
+.sub{color:var(--muted);margin-top:10px;max-width:60ch}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.fact{border:1px solid var(--line);background:var(--surface);border-radius:6px;padding:4px 12px;font-size:.88rem}
+.fact b{color:var(--accent)}
+
+/* nav */
+nav.sec{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line);
+  margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+nav.sec .row{display:flex;gap:6px;overflow-x:auto;padding-block:10px;scrollbar-width:thin;max-width:880px;margin-inline:auto}
+nav.sec a{flex:none;text-decoration:none;color:var(--muted);font-size:.9rem;font-weight:500;padding:5px 14px;border-radius:999px;border:1px solid transparent}
+nav.sec a:hover{color:var(--ink)}
+nav.sec a.on{background:var(--accent);color:var(--accent-ink)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+/* sections */
+section{padding-block:44px 8px;scroll-margin-top:64px}
+section>h2{font-size:1.45rem;font-weight:700;margin-bottom:6px}
+.lede{color:var(--muted);margin-bottom:22px;max-width:62ch}
+h3{font-size:1.05rem;font-weight:700;margin:30px 0 10px;color:var(--accent)}
+ul,ol{padding-inline-start:1.3em;margin:0 0 1em}
+li{margin-bottom:.35em}
+li::marker{color:var(--accent)}
+
+/* tables */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--surface);margin:12px 0 20px}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:.93rem}
+th,td{padding:10px 14px;text-align:start;vertical-align:top;border-bottom:1px solid var(--line)}
+th{font-size:.78rem;letter-spacing:.04em;color:var(--muted);font-weight:600;background:color-mix(in srgb,var(--accent-soft) 55%,var(--surface));white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:600;white-space:nowrap}
+td.wrapcell{white-space:normal}
+
+/* callouts */
+.note{background:var(--warn-soft);color:var(--ink);border-radius:8px;padding:12px 16px;margin:14px 0;font-size:.93rem}
+.note b{color:var(--warn)}
+.key{background:var(--accent-soft);border-radius:8px;padding:12px 16px;margin:14px 0}
+
+/* score */
+.score{display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-bottom:18px}
+.score .num{font-family:var(--display);font-weight:800;font-size:2.4rem;line-height:1;direction:ltr}
+.score .num small{font-size:1rem;color:var(--muted);font-weight:600}
+.bar{display:flex;gap:4px;flex:1 1 220px;min-width:0;direction:ltr}
+.bar i{flex:1;height:14px;border-radius:3px;background:var(--good)}
+.bar i.x{background:var(--bad)}
+.chip{display:inline-block;font-family:var(--mono);font-size:.78rem;padding:1px 9px;border-radius:4px;direction:ltr;font-weight:500}
+.chip.bad{background:var(--bad-soft);color:var(--bad)}
+.chip.good{background:var(--good-soft);color:var(--good)}
+
+/* glossary search */
+.search{display:block;width:100%;font:inherit;padding:10px 14px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);margin-top:4px}
+.empty{padding:14px;color:var(--muted);display:none}
+
+/* compare pairs */
+.pairs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.pair{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 16px;min-width:0}
+.pair h4{margin:0 0 6px;font-size:.95rem;font-family:var(--display);color:var(--accent)}
+.pair p{margin:0;font-size:.9rem}
+
+/* practice */
+.pbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.pscore{font-family:var(--mono);direction:ltr;font-size:.95rem}
+button{font:inherit;cursor:pointer}
+.reset{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:6px;padding:5px 14px}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin-bottom:12px}
+.q .qt{font-weight:600;margin-bottom:10px}
+.q .qn{font-family:var(--mono);color:var(--accent);margin-inline-end:8px;direction:ltr;display:inline-block}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:6px;padding:7px 14px;text-align:start;direction:ltr}
+.opt:hover:not(:disabled){border-color:var(--accent)}
+.opt.ok{background:var(--good-soft);border-color:var(--good);color:var(--good);font-weight:600}
+.opt.no{background:var(--bad-soft);border-color:var(--bad);color:var(--bad)}
+.opt:disabled{cursor:default}
+.fb{margin-top:10px;font-size:.92rem;color:var(--muted);display:none}
+.fb.show{display:block}
+.q.tf .opts{direction:rtl}
+.q.tf .opt{direction:rtl}
+
+.qr{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin-bottom:10px;direction:ltr;text-align:left}
+.qr .h{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.qr .h p{margin:0;font-weight:600}
+.qr .tag{flex:none;font-family:var(--mono);font-size:.75rem;padding:1px 9px;border-radius:4px;font-weight:500}
+.qr .tag.g{background:var(--good-soft);color:var(--good)}
+.qr .tag.r{background:var(--bad-soft);color:var(--bad)}
+.qr ul{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:4px}
+.qr li{margin:0;padding:4px 10px;border-radius:6px;font-size:.93rem}
+.qr li.ok{background:var(--good-soft);color:var(--good);font-weight:600}
+.qr li.no{background:var(--bad-soft);color:var(--bad)}
+.qr li.sec{color:var(--muted);font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;padding:8px 2px 0}
+footer{padding-block:40px 56px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line);margin-top:48px}
+@media (max-width:520px){.score .num{font-size:2rem} td:first-child{white-space:normal}}
+@media (prefers-reduced-motion:no-preference){.opt{transition:background .15s,border-color .15s}}
+</style>
+
+<div dir="rtl" lang="ar">
+<div class="wrap">
+
+<header class="top">
+  <div class="eyebrow">IEF 411 · ISLAMIC MICROFINANCE AND SMEs</div>
+  <h1>مراجعة الميدتيرم</h1>
+  <p class="sub">ملخص مركّز لأسابيع 1 إلى 7، مبني على شرائح الدكتور، وكتاب Obaidullah (الفصول 1–4)، وكتاب Durrani وBoocock (الفصلان 2 و3)، ونتيجة كويز الأسبوع الرابع.</p>
+  <div class="facts">
+    <span class="fact">نتيجة الكويز <b>11 من 15</b></span>
+    <span class="fact">الأسابيع <b>1–7</b></span>
+    <span class="fact">أسئلة تدريب <b>13</b></span>
+  </div>
+</header>
+
+<nav class="sec" aria-label="أقسام المراجعة"><div class="row">
+  <a href="#quiz">الكويز</a><a href="#glossary">المصطلحات</a><a href="#ch1">الفصل 1</a>
+  <a href="#ch23">الفصلان 2–3</a><a href="#ch4">الفصل 4</a><a href="#sme">SMEs</a><a href="#practice">تدريب</a>
+</div></nav>
+
+<!-- QUIZ -->
+<section id="quiz">
+  <h2>تصحيح الكويز</h2>
+  <p class="lede">أربعة أخطاء، وكلها في مصطلحات أساسية ستتكرر في الاختبار.</p>
+  <div class="score">
+    <div class="num">11<small> / 15</small></div>
+    <div class="bar" aria-label="11 إجابة صحيحة و4 خاطئة"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="x"></i><i class="x"></i><i class="x"></i><i class="x"></i></div>
+  </div>
+  <div class="tw"><table>
+    <tr><th>السؤال</th><th>إجابتك</th><th>الصحيح</th><th>السبب</th></tr>
+    <tr><td class="wrapcell">4 · SMEs هي العمود الفقري لاقتصادات كثيرة</td><td><span class="chip bad">F</span></td><td><span class="chip good">T</span></td><td class="wrapcell">SMEs في تركيا مثلاً 99.8% من المنشآت و62% من GDP.</td></tr>
+    <tr><td class="wrapcell">5 · Mudarabah عقد إجارة بين طرفين</td><td><span class="chip bad">T</span></td><td><span class="chip good">F</span></td><td class="wrapcell">Mudarabah شراكة ربح: مال من طرف وعمل من آخر. الإجارة هي <bdi>Ijara</bdi>.</td></tr>
+    <tr><td class="wrapcell">12 · SMEs تعني</td><td><span class="chip bad">b</span></td><td><span class="chip good">a</span></td><td class="wrapcell"><bdi>Small and Medium Enterprises</bdi></td></tr>
+    <tr><td class="wrapcell">14 · Halal تعني</td><td><span class="chip bad">b</span></td><td><span class="chip good">a</span></td><td class="wrapcell">Halal = <bdi>Permissible under Shariah law</bdi>. Interest-free ليس تعريفها.</td></tr>
+  </table></div>
+  <div class="note"><b>تحقق من ورقتك.</b> قرأت إجابتك في السؤالين 4 و5 من خط اليد على الصورة (F ثم T). إن كانت إجابتك مختلفة فعدّل النتيجة.</div>
+  <p><b>الصحيحة:</b> 1 (F) · 2 (T) · 3 (T) · 6 · 7 · 8 · 9 · 10 · 11 · 13 · والسؤال غير المرقّم عن تحدي SMEs (<bdi>Lack of access to finance</bdi>).</p>
+  <div class="key"><b>السؤال 7 (يشارك في الربح دون الخسارة):</b> الجواب Mudarabah صحيح. المضارب <bdi>mudarib</bdi> لا يتحمل خسارة مالية ويخسر جهده فقط، وصاحب المال <bdi>rabb al-mal</bdi> يتحمل الخسارة المالية. في Musharakah تُوزَّع الخسارة بنسبة رأس المال.</div>
+  <h3>أسئلة الكويز كاملة مع الإجابات</h3>
+  <p class="lede">الأخضر هو الجواب الصحيح، والأحمر إجابتك الخاطئة. ورقة الكويز نفسها تذكر «Correct answer: a» تحت السؤال 12.</p>
+
+  <div class="qr"><div class="h"><p>1. Islamic finance allows the charging of interest (Riba) on loans.</p><span class="tag g">CORRECT</span></div><ul><li>True</li><li class="ok">False — your answer</li></ul></div>
+  <div class="qr"><div class="h"><p>2. Microfinance institutions primarily provide services to low-income individuals who lack access to traditional banking.</p><span class="tag g">CORRECT</span></div><ul><li class="ok">True — your answer</li><li>False</li></ul></div>
+  <div class="qr"><div class="h"><p>3. Islamic microfinance supports profit-and-loss sharing instead of fixed interest-based repayments.</p><span class="tag g">CORRECT</span></div><ul><li class="ok">True — your answer</li><li>False</li></ul></div>
+  <div class="qr"><div class="h"><p>4. SMEs are considered the backbone of many economies, especially in developing countries.</p><span class="tag r">WRONG</span></div><ul><li class="ok">True — correct</li><li class="no">False — your answer</li></ul></div>
+  <div class="qr"><div class="h"><p>5. In Islamic finance, Mudarabah refers to a leasing contract between two parties.</p><span class="tag r">WRONG</span></div><ul><li class="no">True — your answer</li><li class="ok">False — correct (leasing is Ijara)</li></ul></div>
+
+  <div class="qr"><div class="h"><p>6. Which of the following is NOT an Islamic finance principle?</p><span class="tag g">CORRECT</span></div><ul><li>a) Risk-sharing</li><li class="ok">b) Interest-based lending — your answer</li><li>c) Ethical investing</li><li>d) Profit-and-loss sharing</li></ul></div>
+  <div class="qr"><div class="h"><p>7. Which of the following financial instruments involves sharing profits but not losses?</p><span class="tag g">CORRECT</span></div><ul><li>a) Murabaha</li><li class="ok">b) Mudarabah — your answer</li><li>c) Musharakah</li><li>d) Ijara</li></ul></div>
+  <div class="qr"><div class="h"><p>8. The primary goal of microfinance is to:</p><span class="tag g">CORRECT</span></div><ul><li>a) Offer large-scale loans to corporations</li><li class="ok">b) Provide financial services to underserved populations — your answer</li><li>c) Fund government projects</li><li>d) Earn maximum profit through high interest rates</li></ul></div>
+  <div class="qr"><div class="h"><p>9. What does "Riba" refer to in Islamic finance?</p><span class="tag g">CORRECT</span></div><ul><li>a) Profit-sharing</li><li class="ok">b) Interest or usury — your answer</li><li>c) Leasing</li><li>d) Asset-backed lending</li></ul></div>
+  <div class="qr"><div class="h"><p>10. Which sector is typically the biggest beneficiary of microfinance services?</p><span class="tag g">CORRECT</span></div><ul><li>a) Large corporations</li><li class="ok">b) SMEs and low-income entrepreneurs — your answer</li><li>c) Government agencies</li><li>d) Stock market investors</li></ul></div>
+  <div class="qr"><div class="h"><p>11. Which Islamic finance contract involves a partnership where both parties contribute capital and share in profits and losses?</p><span class="tag g">CORRECT</span></div><ul><li>a) Mudarabah</li><li>b) Ijara</li><li class="ok">c) Musharakah — your answer</li><li>d) Murabaha</li></ul></div>
+  <div class="qr"><div class="h"><p>12. SMEs stand for:</p><span class="tag r">WRONG</span></div><ul><li class="ok">a) Small and Medium Enterprises — correct</li><li class="no">b) Sustainable Micro Economic systems — your answer</li><li>c) Shared Monetary Entities</li><li>d) Smart Micro Enterprises</li></ul></div>
+  <div class="qr"><div class="h"><p>13. Islamic microfinance is typically different from conventional microfinance because:</p><span class="tag g">CORRECT</span></div><ul><li>a) It charges higher interest rates</li><li class="ok">b) It focuses on ethical and Shariah-compliant principles — your answer</li><li>c) It only works in Muslim countries</li><li>d) It requires collateral for all loans</li></ul></div>
+  <div class="qr"><div class="h"><p>14. Which of the following is a major challenge faced by SMEs? (unnumbered on the paper)</p><span class="tag g">CORRECT</span></div><ul><li>a) Lack of customers</li><li class="ok">b) Lack of access to finance — your answer</li><li>c) High taxes</li><li>d) Excessive government subsidies</li></ul></div>
+  <div class="qr"><div class="h"><p>15. In Islamic finance, the term "Halal" means: (numbered 14 on the paper)</p><span class="tag r">WRONG</span></div><ul><li class="ok">a) Permissible under Shariah law — correct</li><li class="no">b) Interest-free — your answer</li><li>c) Tax-exempt</li><li>d) Environmentally friendly</li></ul></div>
+</section>
+
+<!-- GLOSSARY -->
+<section id="glossary">
+  <h2>المصطلحات والعقود</h2>
+  <p class="lede">صفحات 59–62 من كتاب Obaidullah. أشار الدكتور في الشرائح إلى أن عليها كويزاً. ابحث عن أي مصطلح في الخانة التالية.</p>
+  <label for="gq" class="mono" style="color:var(--muted)">SEARCH</label>
+  <input id="gq" class="search" type="search" placeholder="اكتب مصطلحاً مثل Murabaha أو الزكاة" autocomplete="off">
+  <div class="tw"><table id="gt">
+    <tr><th>المصطلح</th><th>المعنى</th><th>ما يميّزه</th></tr>
+    <tr><td>Riba</td><td class="wrapcell">الزيادة المشروطة على القرض، أي الفائدة</td><td class="wrapcell">محرّمة، وهي المبدأ الذي تتميز به المالية الإسلامية</td></tr>
+    <tr><td>Gharar</td><td class="wrapcell">عدم يقين أو خداع في العقد</td><td class="wrapcell">يجب أن تخلو منه العقود مع الربا</td></tr>
+    <tr><td>Halal</td><td class="wrapcell">ما تسمح به الشريعة</td><td class="wrapcell">ليست معناها «خالٍ من الفائدة»</td></tr>
+    <tr><td>Sadaqa</td><td class="wrapcell">الصدقة، وكل عمل خير</td><td class="wrapcell">إذا وجبت سُمّيت Zakah، وإذا دام نفعها سُمّيت Sadaqa Jariya (= Waqf)</td></tr>
+    <tr><td>Zakah</td><td class="wrapcell">ركن إسلامي، نسبتها 2.5% في معظم الأصول المالية</td><td class="wrapcell">شرطاها Nisab (الحد الأدنى) وHaul (سنة هجرية). الدافع <bdi>muzakki</bdi> والمستلم <bdi>mustahiq</bdi></td></tr>
+    <tr><td>Waqf</td><td class="wrapcell">أصل مُحبَّس دائم يُنفق ريعه فقط</td><td class="wrapcell">اختياري، ويتميز بالديمومة <bdi>perpetuity</bdi>. الواقف <bdi>waqif</bdi> والمتولي <bdi>mutawalli</bdi></td></tr>
+    <tr><td>Qard Hasan</td><td class="wrapcell">قرض بلا أي مقابل للمقرض</td><td class="wrapcell">يجوز تحميل التكلفة التشغيلية الفعلية فقط، وليس نسبة من القرض</td></tr>
+    <tr><td>Murabaha</td><td class="wrapcell">بيع بهامش ربح معلوم (التكلفة + هامش)</td><td class="wrapcell">الطرفان يعرفان التكلفة والربح. إن لم يُفصح عنهما فهي Musawama</td></tr>
+    <tr><td>Bai Muajjal</td><td class="wrapcell">بيع بثمن مؤجَّل (= Bai Bithaman Ajil)</td><td class="wrapcell">السلعة تُسلَّم الآن والدفع لاحقاً، ولا يُشترط معرفة التكلفة</td></tr>
+    <tr><td>Bai Salam</td><td class="wrapcell">دفع الثمن مقدّماً والتسليم لاحقاً</td><td class="wrapcell">عكس Bai Muajjal</td></tr>
+    <tr><td>Istisna</td><td class="wrapcell">عقد تصنيع بمواصفات محددة</td><td class="wrapcell">لا يُدفع شيء عند التعاقد، والدفع بالأقساط أو في النهاية (عكس Salam)</td></tr>
+    <tr><td>Ijara</td><td class="wrapcell">إجارة، أي بيع منفعة الأصل</td><td class="wrapcell">المؤجِّر يبقى مالكاً ويتحمل مخاطر الملكية. الأصل أمانة عند المستأجر</td></tr>
+    <tr><td>Mudaraba</td><td class="wrapcell">شراكة بين <bdi>rabb al-mal</bdi> (مال) و<bdi>mudarib</bdi> (عمل)</td><td class="wrapcell">الربح بنسبة متفق عليها، والخسارة المالية على صاحب المال فقط</td></tr>
+    <tr><td>Musharaka</td><td class="wrapcell">شراكة يساهم فيها الطرفان بمال وإدارة</td><td class="wrapcell">الربح حسب الاتفاق، والخسارة بنسبة رأس المال</td></tr>
+    <tr><td>Wadia</td><td class="wrapcell">وديعة أمانة للحفظ</td><td class="wrapcell">تُستخدم في الادخار الصغير (micro-savings)</td></tr>
+    <tr><td>Wakala</td><td class="wrapcell">وكالة بأجر</td><td class="wrapcell">يقاربها التمويل بمشاركة الإيراد (revenue sharing)</td></tr>
+    <tr><td>Kafala</td><td class="wrapcell">ضمان أو كفالة</td><td class="wrapcell">أساس الضمان الجماعي بدل الرهن في النماذج الإسلامية</td></tr>
+    <tr><td>Takaful</td><td class="wrapcell">تأمين تعاوني بديل للتأمين التجاري</td><td class="wrapcell">مجموعة تجمع مبالغ وتغطي خسائر أحدها</td></tr>
+    <tr><td>Ujrat</td><td class="wrapcell">أجرة الخدمة</td><td class="wrapcell">تُفصل عن مبلغ التمويل وتستند إلى التكلفة</td></tr>
+    <tr><td>Tamleek</td><td class="wrapcell">تمليك الزكاة للمستحق ملكية كاملة</td><td class="wrapcell">لا تُدفع كمساهمة عامة للتكاليف الإدارية</td></tr>
+    <tr><td>Fard Kifayah</td><td class="wrapcell">واجب كفائي</td><td class="wrapcell">رعاية الفقراء واجب على المجتمع كله</td></tr>
+  </table><div class="empty" id="ge">لا توجد نتائج مطابقة.</div></div>
+</section>
+
+<!-- CH1 -->
+<section id="ch1">
+  <h2>الفصل 1: Microfinance ومكافحة الفقر</h2>
+  <p><b>التعريف:</b> خدمات مصرفية للعاطلين أو محدودي الدخل الذين لا وصول لهم إلى الخدمات المالية. يقول الدكتور إن التمويل الأصغر إسلامي بطبيعته مع تعديلات أحياناً.</p>
+  <p><b>لماذا تستبعد البنوك الفقراء:</b> ارتفاع تكلفة التمويل وتكلفة المعالجة، ونظام الضمانات <bdi>collateral</bdi>. لا ضمان يعني لا ائتمان. والبنوك تتركز في المدن بينما المؤسسات الصغيرة تذهب إلى الريف.</p>
+  <h3>احتياجات الفقراء المالية ثلاثة</h3>
+  <ul><li>أحداث دورة الحياة: زواج، ولادة، تعليم</li><li>الطوارئ: مرض وكوارث</li><li>فرص الاستثمار</li></ul>
+  <h3>منتجات Microfinance الخمسة</h3>
+  <div class="tw"><table>
+    <tr><th>المنتج</th><th>الفكرة</th></tr>
+    <tr><td>Micro-credit</td><td class="wrapcell">تمويل يُنشئ ديناً: qard hasan وmurabaha وijara وsalam</td></tr>
+    <tr><td>Micro-equity</td><td class="wrapcell">تمويل بالمشاركة (mudaraba وmusharaka) ويُسمى micro venture capital</td></tr>
+    <tr><td>Micro-savings</td><td class="wrapcell">ادخار آمن بأرصدة صغيرة</td></tr>
+    <tr><td>Micro-transfers</td><td class="wrapcell">تحويلات وحوالات</td></tr>
+    <tr><td>Micro-insurance</td><td class="wrapcell">في الإسلام يكون takaful تعاونياً</td></tr>
+  </table></div>
+  <h3>مشاريع المنشآت الصغيرة نوعان</h3>
+  <div class="tw"><table>
+    <tr><th></th><th>Livelihood (بقاء)</th><th>Growth (نمو)</th></tr>
+    <tr><td>الدافع</td><td class="wrapcell">مدفوع إليها لعدم وجود بديل</td><td class="wrapcell">منجذب للربحية، رائد أعمال باختياره</td></tr>
+    <tr><td>الهدف</td><td class="wrapcell">تخفيف الفقر، غالباً ائتمان فقط (minimalist)</td><td class="wrapcell">ائتمان وتدريب ومساعدة فنية</td></tr>
+    <tr><td>الدخل</td><td class="wrapcell">ثانوي وموسمي، عمالة عائلية</td><td class="wrapcell">مصدر رئيسي للأسرة</td></tr>
+    <tr><td>المهارات</td><td class="wrapcell">لا تحتاج مهارات، فيكثر المنافسون</td><td class="wrapcell">تعليم وخبرة، تصنيع وخدمات</td></tr>
+    <tr><td>الملاك</td><td class="wrapcell">نسبة أعلى من النساء</td><td class="wrapcell">فقراء متوسطون أو متخرجون من الفقر</td></tr>
+  </table></div>
+  <h3>النماذج الأربعة</h3>
+  <ul>
+    <li><b>Grameen Bank:</b> مجموعات من 5 أعضاء غالباً نساء يضمن بعضهم قروض بعض. اشتهر بمفهوم <bdi>joint liability</bdi>. نسخته الإسلامية Islami Bank Bangladesh.</li>
+    <li><b>Village Bank:</b> 30 إلى 50 عضواً، وسداد أسبوعي على نحو 4 أشهر.</li>
+    <li><b>Credit Union:</b> تعاونية غير ربحية يملكها أعضاؤها. نظيرها الإسلامي BMT في إندونيسيا.</li>
+    <li><b>Self-Help Groups (SHG):</b> 10 إلى 15 عضواً متجانسين في الدخل يجمعون مدخراتهم ويقرضون منها.</li>
+  </ul>
+  <div class="key"><b>نقطة الاختلاف الأساسية عن التمويل التقليدي:</b> بديل الضمانات، أي <bdi>joint liability</bdi> والتمويل المتدرّج <bdi>graduated</bdi>.</div>
+  <h3>أهم Best Practices من أصل 11</h3>
+  <ul>
+    <li>الفقراء يحتاجون خدمات متنوعة وليس قروضاً فقط.</li>
+    <li>يجب أن تغطي المؤسسة تكاليفها وإلا بقيت معتمدة على المانحين.</li>
+    <li>سقوف أسعار الفائدة تضر الفقراء لأنها تمنع تغطية التكاليف.</li>
+    <li>دور الحكومة تمكين الخدمات وليس تقديمها بنفسها.</li>
+    <li>المانحون يكمّلون رأس المال الخاص ولا ينافسونه، ودعمهم مؤقت.</li>
+    <li>القيد الأكبر هو نقص المؤسسات والمديرين الأقوياء.</li>
+    <li>القياس والإفصاح عن الأداء المالي والاجتماعي.</li>
+  </ul>
+  <h3>قضايا مهمة</h3>
+  <ul>
+    <li>Microcredit ليس للمعدمين <bdi>destitute</bdi> الذين لا دخل لهم، وقد يزيدهم فقراً. حلهم الزكاة وشبكة الأمان الاجتماعي.</li>
+    <li>ارتفاع الفائدة التقليدية يُبرَّر بارتفاع تكاليف المتابعة. النظام الإسلامي يربط تكلفة رأس المال بربح المشروع، والدين الإسلامي لا يتضاعف عند التعثر.</li>
+    <li>نهج «النساء فقط» حساس في المجتمعات المسلمة، فتتحول بعض المؤسسات إلى «تمكين الأسرة» <bdi>family empowerment</bdi>.</li>
+  </ul>
+</section>
+
+<!-- CH2-3 -->
+<section id="ch23">
+  <h2>الفصلان 2 و3: النهج الإسلامي والنماذج الخيرية</h2>
+  <p>الفقر في الإسلام مشكلة يُسعى لاستئصالها بالعمل المنتج، وليس زهداً يُمدح. رعاية الفقراء <bdi>fard kifayah</bdi>، وقال الشاطبي إن هذا سبب وجود المجتمع أصلاً. النهج مركّب: خيري <bdi>mission-based</bdi> مع تجاري <bdi>market-based</bdi>.</p>
+  <h3>المحاور الستة للنهج الإسلامي</h3>
+  <ol>
+    <li><b>Charity:</b> الصدقة والزكاة محور النظام.</li>
+    <li><b>Economic empowerment:</b> حديث الرجل الأنصاري الذي باع النبي متاعه واشترى له فأساً وقال له احتطب. الدرس: التمكين لا السؤال.</li>
+    <li><b>Debt avoidance:</b> الدين مباح لكنه ملجأ أخير. على المؤسسة الإسلامية ألا تُغرق العميل بديون متزايدة.</li>
+    <li><b>Cooperation:</b> «تعاونوا على البر». ويبرر التمويل بالمشاركة والضمان الجماعي.</li>
+    <li><b>Family cohesiveness:</b> نهج «النساء فقط» غريب عن الإسلام، والبديل <bdi>family empowerment</bdi>.</li>
+    <li><b>Shariah compliance:</b> العقود خالية من <bdi>Riba</bdi> و<bdi>Gharar</bdi>.</li>
+  </ol>
+  <div class="key"><b>المراحل:</b> أولاً الزكاة والوقف والقرض الحسن للاستهلاك والأمان، ثم التمويل الربحي للقادرين على العمل.</div>
+  <h3>الزكاة</h3>
+  <ul>
+    <li>المستحقون ثمانية (التوبة: 60): الفقراء، المساكين، العاملون عليها، المؤلفة قلوبهم، في الرقاب، الغارمون، في سبيل الله، ابن السبيل.</li>
+    <li>الأولوية للفقراء وللمحتاجين في نفس المنطقة التي جُمعت منها.</li>
+    <li>ليس ضرورياً دفعها لكل الأصناف الثمانية ولا توزيعها على أكبر عدد. يجوز إعطاء مبلغ كبير لشخص لإخراجه من الفقر.</li>
+    <li>تُدفع نقداً أو عيناً بمبدأ <bdi>tamleek</bdi>.</li>
+    <li>لا زكاة على وسائل الإنتاج (آلات ومعدات) ولا على ما يُستهلك شخصياً.</li>
+    <li>هدف البرامج الإسلامية: تحويل <bdi>mustahiq</bdi> إلى <bdi>muzakki</bdi>.</li>
+    <li>الاستهلاك أم التمكين؟ الحاجات الفورية للأفقر أولاً، ثم التدريب، ثم رأس مال لمشروعهم.</li>
+    <li>مشكلة الزكاة الاستدامة لأن تدفقها متقلب. الحل المقترح قرض حسن متجدد، لكنه لا يناسب أفقر الفقراء.</li>
+    <li>حالة Ruma Zakat Yogyakarta في إندونيسيا، ص 30.</li>
+  </ul>
+  <h3>الوقف</h3>
+  <ul>
+    <li>صدقة جارية، اختيارية (عكس الزكاة)، ويجوز لغير المسلمين الاستفادة منه.</li>
+    <li>ثلاثة أنواع: ديني (مساجد)، خيري (للفقراء)، أهلي (للذرية أولاً). الخيري أنسب لمكافحة الفقر.</li>
+    <li>يجوز وقف النقود <bdi>cash waqf</bdi> عند بعض العلماء، ومثاله الوقف النقدي العثماني.</li>
+    <li>يُستخدم لبناء القدرات والتدريب وليس للاستهلاك المباشر.</li>
+  </ul>
+  <h3>القرض الحسن</h3>
+  <ul>
+    <li>قرض بلا عائد على المقرض، وقد يكون بلا موعد سداد محدد.</li>
+    <li>الهدايا المعتادة من المقترض للمقرض تُعد ربا.</li>
+    <li>يجوز استرداد التكلفة التشغيلية الفعلية بشرط ألا ترتبط بمبلغ القرض أو مدته، ويُعاد الفائض للمقترض.</li>
+    <li>ميزته الاستدامة بدوران الأموال، ويصلح للاستهلاك والإنتاج.</li>
+    <li>حالة صناديق القرض الحسن في إيران، ص 39.</li>
+  </ul>
+  <h3>النموذج الخيري المتكامل</h3>
+  <p>يجمع صندوق الزكاة من <bdi>muzakki</bdi>. يُخصص جزء منه منحاً للفقراء غير القادرين على العمل كشبكة أمان، وتُستخدم أصول الوقف لتدريبهم. يُشكّل المتدربون مجموعات بضمان متبادل <bdi>kafala</bdi> ويحصلون على <bdi>qard hasan</bdi>. ثم ينضم الأعضاء إلى مدخرات صغيرة وصندوق takaful.</p>
+  <div class="key"><b>الميزة الفارقة:</b> صندوق الزكاة يضمن تخلف المجموعة عن السداد ويسدد عنها.</div>
+</section>
+
+<!-- CH4 -->
+<section id="ch4">
+  <h2>الفصل 4: التمويل الربحي</h2>
+  <p>النهج الإسلامي مزيج من خيري وربحي. التمويل الربحي يخدم الفقراء النشطين اقتصادياً ويمنح المؤسسة استدامة مالية.</p>
+  <h3>أدوات التمويل</h3>
+  <div class="tw"><table>
+    <tr><th>الخدمة</th><th>العقد</th><th>الفكرة</th></tr>
+    <tr><td>الادخار</td><td>Wadia / Qard Hasan / Mudaraba</td><td class="wrapcell">في Wadia تُحفظ كأمانة وتُستثمر على مسؤولية المؤسسة. في Mudaraba المؤسسة مضارِب، والربح بنسبة، ويتحمل المودع الخسارة.</td></tr>
+    <tr><td>الائتمان</td><td>Murabaha / Bai Muajjal</td><td class="wrapcell">المؤسسة تشتري السلعة بسعر P ثم تبيعها بـ P+M مؤجَّلاً. أشهر منتج في Islamic microfinance.</td></tr>
+    <tr><td>الائتمان</td><td>Ijara</td><td class="wrapcell">المؤسسة تملك الأصل وتتحمل مخاطر الملكية، وهذا سبب شرعية ربحها. الإيجار التمويلي الذي ينقل كل المخاطر للمستأجر غير مقبول.</td></tr>
+    <tr><td>الائتمان</td><td>Salam / Istisna / Istijrar</td><td class="wrapcell">البيع الآجل، التصنيع، البيع المتكرر.</td></tr>
+    <tr><td>المشاركة</td><td>Mudaraba</td><td class="wrapcell">المؤسسة <bdi>rabb al-mal</bdi> ورائد الأعمال <bdi>mudarib</bdi>. مقيّدة <bdi>muqayyada</bdi> أو مطلقة <bdi>mutlaqa</bdi>.</td></tr>
+    <tr><td>المشاركة</td><td>Musharaka</td><td class="wrapcell">كلا الطرفين يساهم بمال وإدارة، والخسارة بنسبة المساهمة.</td></tr>
+    <tr><td>خدمات أخرى</td><td>Ujrat</td><td class="wrapcell">أجرة مبنية على التكلفة ومنفصلة عن مبلغ المال.</td></tr>
+  </table></div>
+  <div class="pairs">
+    <div class="pair"><h4>Bai Muajjal / Murabaha / Musawama</h4><p>Bai Muajjal بيع بثمن مؤجَّل عُرفت التكلفة أم لا. Murabaha يشترط معرفة الطرفين للتكلفة والربح. Musawama لا يُفصح فيها عنهما.</p></div>
+    <div class="pair"><h4>Salam / Istisna</h4><p>في Salam يُدفع الثمن كاملاً مقدماً وتُسلَّم السلعة لاحقاً. في Istisna لا يُدفع شيء عند التعاقد.</p></div>
+  </div>
+  <h3>عيوب نماذج الربح والخسارة (PLS) في التمويل الأصغر</h3>
+  <ul>
+    <li>مشكلة الوكالة <bdi>agency problem</bdi>.</li>
+    <li>تحتاج إشراكاً طويلاً ومساعدة فنية، فترتفع التكلفة.</li>
+    <li>عدم يقين الأرباح وتقلبها أسبوعياً، فيصعب توقع التدفقات النقدية.</li>
+    <li>صعوبة الفهم على موظفي القروض والمقترضين لأن السداد يختلف كل فترة.</li>
+  </ul>
+  <p>لهذا تفضّل معظم مؤسسات Islamic MF التمويل المبني على الدين، أي المرابحة والإجارة.</p>
+  <h3>النموذج المتكامل <bdi>Composite</bdi></h3>
+  <p>النموذج الخيري نفسه مضافاً إليه تمويل ربحي للقادرين على العمل. يتدرج حجم التمويل مع السداد، وصندوق الزكاة يضمن التخلف، مع المدخرات وtakaful.</p>
+  <h3>حالات من العالم</h3>
+  <div class="tw"><table>
+    <tr><th>المنطقة</th><th>المثال</th><th>ما يميّزه</th></tr>
+    <tr><td>مصر</td><td>Mit Ghamr</td><td class="wrapcell">أسّس للبنوك الإسلامية الحديثة رغم قصر عمره</td></tr>
+    <tr><td>سوريا</td><td>Sanadiq (Jabal al-Hoss)</td><td class="wrapcell">بنوك قرى بهيكل musharaka يملكها الفقراء، وتمويل بالمرابحة</td></tr>
+    <tr><td>لبنان</td><td>Bayt Al-Mal</td><td class="wrapcell">تابعة لحزب الله، تضم القرض الحسن وAl-Yusor للاستثمار، وتعتمد على المتطوعين</td></tr>
+    <tr><td>اليمن</td><td>Hodeidah</td><td class="wrapcell">منهج Grameen لكن بالمرابحة</td></tr>
+    <tr><td>بنغلاديش</td><td>Islami Bank Bangladesh</td><td class="wrapcell">تمويل bai muajjal، وتنافسه Grameen وBRAC</td></tr>
+    <tr><td>باكستان</td><td>Akhuwat</td><td class="wrapcell">قروض حسنة بلا مانحين، نموذج المسجد، ومتطوعون</td></tr>
+    <tr><td>ماليزيا</td><td>Tabung Haji</td><td class="wrapcell">أُنشئ لتمويل نفقات الحج لمزارعين فقراء كانوا يبيعون أرضهم</td></tr>
+    <tr><td>إندونيسيا</td><td>BMT / BPRS</td><td class="wrapcell">شبكة تضم أكثر من ألفي مؤسسة، ومنتجاتها متنوعة ومستدامة</td></tr>
+    <tr><td>مالي</td><td>Azaouad Finances</td><td class="wrapcell">بنك إسلامي PLS لأنه مقبول من أطراف الحرب الأهلية السابقة</td></tr>
+    <tr><td>أفغانستان</td><td>FINCA</td><td class="wrapcell">قرض حسن مع رسوم ثابتة غير مرتبطة بنسبة من التمويل</td></tr>
+  </table></div>
+</section>
+
+<!-- SME -->
+<section id="sme">
+  <h2>الشركات الصغيرة والمتوسطة (SMEs)</h2>
+  <div class="note"><b>غير مغطى:</b> شرائح «Determinants, Drivers, Constraints, Credit Risk» المأخوذة من رسالة Mace Abdullah لم تكن ضمن الملفات المرفقة. راجعها من شرائحك.</div>
+  <p><b>التعريف:</b> شركات مستقلة غير تابعة توظف أقل من عدد معين من العمال. الحد الأعلى الأكثر شيوعاً 250 (الاتحاد الأوروبي)، وبعض الدول 200، وأمريكا 500. وتعريف Bolton (1971) النوعي: حصة سوقية صغيرة وإدارة شخصية.</p>
+  <h3>تصنيف تركيا</h3>
+  <div class="tw"><table>
+    <tr><th>المعيار</th><th>Micro</th><th>Small</th><th>Medium</th></tr>
+    <tr><td>عدد الموظفين</td><td>أقل من 10</td><td>أقل من 50</td><td>أقل من 250</td></tr>
+    <tr><td>صافي المبيعات السنوية</td><td>أقل من 3 مليون TRY</td><td>أقل من 25 مليون TRY</td><td>أقل من 125 مليون TRY</td></tr>
+    <tr><td>الميزانية السنوية</td><td>أقل من 3 مليون TRY</td><td>أقل من 25 مليون TRY</td><td>أقل من 125 مليون TRY</td></tr>
+  </table></div>
+  <div class="key"><b>SMEs في تركيا:</b> نحو 3.5 مليون شركة نشطة = 99.8% من المنشآت. تساهم بـ 62% من GDP، و55% من الصادرات، و73.5% من العمالة.</div>
+  <h3>فوائد SMEs (Durrani فصل 2)</h3>
+  <ul>
+    <li><b>التوظيف:</b> أغلب الشركات في العالم صغيرة، وفي أمريكا أكثر من 99%. لكن معظم الشركات المتناهية الصغر تكافح للبقاء ووظائفها منخفضة الجودة، وقلة من الشركات سريعة النمو تُنشئ معظم الوظائف المستدامة.</li>
+    <li><b>المرونة والابتكار:</b> تدخل الشركات الجديدة السوق وترفع الإنتاجية.</li>
+    <li><b>التدويل <bdi>internationalization</bdi>:</b> منها شركات <bdi>born global</bdi>.</li>
+  </ul>
+  <h3>خصائص SMEs</h3>
+  <ul>
+    <li>غالباً تركّز على البقاء والاستقلال لا النمو.</li>
+    <li>تعتمد على الشبكات لإدارة عدم اليقين.</li>
+    <li>ليست نسخاً مصغرة من الشركات الكبيرة، وحوكمتها ضعيفة ومجلس إدارتها صغير.</li>
+    <li>القيود الداخلية: نقص الموارد ورأس المال والمعلومات وضيق وقت المالك. الخارجية: منافسة الشركات الكبرى.</li>
+    <li>الفشل: أكثر من 20% من الشركات الجديدة تفشل خلال سنة ونحو 66% خلال ست سنوات. بقاء الشركات المدعومة بـ VC لسبع سنوات 65–85% مقابل 25% للتقليدية.</li>
+    <li>أسباب الفشل: ضعف الفكرة أو الخبرة، نقص رأس المال، الإدارة، الاعتماد على عميل واحد، الديون أكثر من حقوق الملكية.</li>
+  </ul>
+  <h3>عوائق النمو (Durrani فصل 3)</h3>
+  <p><b>عوائق تمويلية:</b></p>
+  <ul>
+    <li><bdi>Pecking order</bdi>: تفضّل الشركات التمويل الداخلي ثم البنكي، والأسهم الجديدة آخر خيار خوفاً من فقدان السيطرة.</li>
+    <li><bdi>Information asymmetry</bdi> يؤدي إلى <bdi>credit rationing</bdi>.</li>
+    <li><bdi>Adverse selection</bdi>: المقترض الجيد ينسحب فيبقى لدى البنك محفظة أعلى مخاطرة.</li>
+    <li><bdi>Moral hazard</bdi>: المقترض يحوّل الأموال إلى مشاريع أكثر خطورة.</li>
+    <li>الضمان <bdi>collateral</bdi> بديل عن المعلومات، لكن كثيرين لا يملكونه.</li>
+    <li><bdi>Equity gap</bdi>: نقص رأس المال المخاطر الصغير وطويل الأجل (MacMillan 1931).</li>
+    <li>في الدول النامية: البنوك المصدر الرئيسي، والقروض المتعثرة منتشرة، والاعتماد على الضمان كبير، وتدخل الحكومة يشوّه الائتمان.</li>
+  </ul>
+  <p><b>عوائق غير تمويلية:</b> المنافسة وقلة الطلب، صعوبة استقطاب الموظفين وتدريبهم، الحاجة إلى هياكل رسمية وتقارير مالية وIT. وأهم من ذلك غالباً قلة طموح المالك نفسه (قيد ذاتي).</p>
+  <p><b>لماذا تدعم الحكومات SMEs:</b> نمو مستدام، وظائف، ابتكار، صادرات، وإشراك اجتماعي. الأدوات: ضمانات القروض <bdi>Loan Guarantee Scheme</bdi> ودعم VC.</p>
+  <h3>رأس المال الجريء (VC) الإسلامي</h3>
+  <ul>
+    <li>VC هو private equity يموّل شركات ناشئة ذات إمكانات نمو، وقد يكون خبرة إدارية لا مالاً فقط.</li>
+    <li>متوافق مع روح الشريعة لكنه يحتاج تعديلات في طبيعة النشاط وهيكل رأس المال (تُستخدم الأسهم الممتازة عادةً، وأحياناً قروض بفائدة وهذا يحتاج تعديلاً).</li>
+    <li>متوافق مع مقاصد الشريعة لأنه يدعم عقل المبتكر بهيكل مشاركة في الربح والمخاطرة.</li>
+  </ul>
+</section>
+
+<!-- PRACTICE -->
+<section id="practice">
+  <h2>أسئلة تدريب</h2>
+  <p class="lede">اضغط على إجابتك لترى الصحيح والتفسير فوراً.</p>
+  <div class="pbar"><span class="pscore" id="ps">SCORE 0 / 0</span><button class="reset" id="rs" type="button">إعادة المحاولة</button></div>
+  <div id="qs"></div>
+  <h3>أكثر ما يُخلط فيه</h3>
+  <div class="pairs">
+    <div class="pair"><h4>Mudaraba / Musharaka</h4><p>الخسارة على صاحب المال في الأولى، وبنسبة رأس المال في الثانية.</p></div>
+    <div class="pair"><h4>Zakah / Waqf</h4><p>الزكاة واجبة بنصاب وحول، والوقف اختياري ودائم.</p></div>
+    <div class="pair"><h4>mustahiq / muzakki</h4><p>الأول مستحق الزكاة والثاني دافعها.</p></div>
+    <div class="pair"><h4>Salam / Istisna</h4><p>الأول يُدفع فيه الثمن مقدماً، والثاني لا يُدفع شيء عند التعاقد.</p></div>
+  </div>
+</section>
+
+<footer>أُعدّت من شرائح المقرر وكتابي Obaidullah وDurrani وBoocock. الأرقام مأخوذة منها كما وردت.</footer>
+</div></div>
+
+<script>
+(function(){
+  /* section nav highlight */
+  var links=[].slice.call(document.querySelectorAll('nav.sec a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+  function mark(){
+    var y=window.scrollY+90,cur=0;
+    secs.forEach(function(s,i){if(s&&s.offsetTop<=y)cur=i});
+    links.forEach(function(a,i){a.classList.toggle('on',i===cur)});
+    var on=links[cur];if(on&&on.scrollIntoView){var r=on.parentNode;var o=on.offsetLeft;/* keep chip visible */
+      if(o<r.scrollLeft||o+on.offsetWidth>r.scrollLeft+r.clientWidth){r.scrollLeft=o-r.clientWidth/2}}
+  }
+  window.addEventListener('scroll',mark,{passive:true});mark();
+
+  /* glossary filter */
+  var gq=document.getElementById('gq'),rows=[].slice.call(document.querySelectorAll('#gt tr')).slice(1),ge=document.getElementById('ge');
+  gq.addEventListener('input',function(){
+    var v=gq.value.trim().toLowerCase(),n=0;
+    rows.forEach(function(r){var m=!v||r.textContent.toLowerCase().indexOf(v)>-1;r.hidden=!m;if(m)n++});
+    ge.style.display=n?'none':'block';
+  });
+
+  /* practice */
+  var Q=[
+    {t:'tf',q:'Qard Hasan قرض يشترط فيه المقرض نسبة زيادة على المبلغ.',a:false,e:'خطأ. القرض الحسن بلا عائد على المقرض.'},
+    {t:'tf',q:'الوقف واجب مثل الزكاة.',a:false,e:'خطأ. الوقف اختياري، والواجب هو الزكاة.'},
+    {t:'tf',q:'في Musharaka تُوزَّع الخسارة بنسبة رأس المال.',a:true,e:'صح. الربح حسب الاتفاق والخسارة بنسبة المساهمة.'},
+    {t:'tf',q:'Microcredit مناسب دائماً للمعدمين الذين لا دخل لهم.',a:false,e:'خطأ. هم غير مناسبين له، والحل الزكاة وشبكة الأمان.'},
+    {t:'tf',q:'Grameen Bank اشتهر بمفهوم joint liability للمجموعات.',a:true,e:'صح. المجموعات من 5 أعضاء يضمن بعضهم بعضاً.'},
+    {t:'tf',q:'في Ijara ينتقل كل خطر الملكية إلى المستأجر.',a:false,e:'خطأ. المخاطر تبقى على المؤجِّر، وهذا شرط شرعية ربحه.'},
+    {t:'tf',q:'في تركيا تمثل SMEs نحو 99.8% من المنشآت.',a:true,e:'صح. وتساهم بـ 62% من GDP.'},
+    {t:'mc',q:'العقد الذي تشتري فيه المؤسسة السلعة ثم تبيعها بهامش ربح معلوم مؤجّلاً:',o:['Salam','Murabaha','Waqf','Istisna'],a:1,e:'Murabaha: التكلفة والربح معلومان للطرفين.'},
+    {t:'mc',q:'الصدقة الجارية الدائمة تُسمى:',o:['Zakah','Waqf','Takaful','Kafala'],a:1,e:'Waqf هو الأصل المحبَّس الدائم.'},
+    {t:'mc',q:'من يدفع الزكاة يُسمى:',o:['mustahiq','mutawalli','muzakki','mudarib'],a:2,e:'muzakki دافعها، وmustahiq مستحقها.'},
+    {t:'mc',q:'شركة توظف أقل من 50 عاملاً ومبيعاتها أقل من 25 مليون ليرة تُصنّف في تركيا:',o:['Micro','Small','Medium','Large'],a:1,e:'Small: أقل من 50 موظفاً وأقل من 25 مليون TRY.'},
+    {t:'mc',q:'المشكلة التي ينسحب فيها المقترضون الجيدون فتبقى محفظة أعلى مخاطرة هي:',o:['Moral hazard','Adverse selection','Gharar','Equity gap'],a:1,e:'Adverse selection.'},
+    {t:'mc',q:'النموذج القائم على المساجد والمتطوعين في باكستان:',o:['Mit Ghamr','Akhuwat','Tabung Haji','Sanadiq'],a:1,e:'Akhuwat: قروض حسنة بلا مانحين وبمتطوعين.'},
+    {t:'tf',q:'Gharar تعني عدم اليقين أو الخداع في العقد.',a:true,e:'صح. ويجب أن تخلو منه العقود مع الربا.'},
+    {t:'tf',q:'يجوز للمؤسسة أخذ نسبة من مبلغ القرض الحسن كرسوم خدمة.',a:false,e:'خطأ. الرسوم تكون على التكلفة التشغيلية الفعلية ولا ترتبط بمبلغ القرض أو مدته.'},
+    {t:'tf',q:'في Mudaraba يتحمل المضارِب (mudarib) الخسارة المالية.',a:false,e:'خطأ. الخسارة المالية على rabb al-mal، والمضارب يخسر جهده فقط.'},
+    {t:'tf',q:'يجوز دفع الزكاة لكل الأصناف الثمانية بالتساوي، وهذا واجب.',a:false,e:'خطأ. لا يجب دفعها لكل الأصناف، والأولوية للفقراء.'},
+    {t:'tf',q:'سقوف أسعار الفائدة تساعد الفقراء في الحصول على الائتمان.',a:false,e:'خطأ. تضرهم لأنها تمنع المؤسسات من تغطية تكاليفها فتقل القروض.'},
+    {t:'tf',q:'في Salam يُدفع الثمن مقدماً وتُسلَّم السلعة لاحقاً.',a:true,e:'صح. وIstisna لا يُدفع فيها شيء عند التعاقد.'},
+    {t:'tf',q:'تتحول بعض المؤسسات الإسلامية من «تمكين المرأة» إلى «تمكين الأسرة».',a:true,e:'صح. لأن نهج «النساء فقط» حساس في المجتمعات المسلمة.'},
+    {t:'tf',q:'المنشآت الصغيرة تفضّل غالباً إصدار أسهم جديدة قبل الاقتراض من البنك.',a:false,e:'خطأ. حسب pecking order: التمويل الداخلي ثم البنكي، والأسهم الجديدة آخر خيار.'},
+    {t:'mc',q:'نسبة الزكاة في معظم الأصول المالية:',o:['1%','2.5%','5%','10%'],a:1,e:'2.5% بشرط بلوغ النصاب ومرور الحول.'},
+    {t:'mc',q:'الضمان الجماعي بين أعضاء المجموعة في النماذج الإسلامية يقوم على:',o:['Kafala','Wadia','Ujrat','Istisna'],a:0,e:'Kafala هي الكفالة والضمان.'},
+    {t:'mc',q:'البديل الإسلامي للتأمين التجاري:',o:['Takaful','Wakala','Salam','Waqf'],a:0,e:'Takaful تأمين تعاوني.'},
+    {t:'mc',q:'النموذج الذي يضم 30 إلى 50 عضواً ويُسدَّد فيه أسبوعياً على نحو 4 أشهر:',o:['Grameen Bank','Village Bank','Credit Union','Self-Help Group'],a:1,e:'Village Bank. وGrameen مجموعات من 5.'},
+    {t:'mc',q:'مشروع يعمل فيه صاحبه لأنه لا يجد بديلاً ودخله ثانوي وموسمي:',o:['Growth enterprise','Livelihood enterprise','Venture capital','Credit union'],a:1,e:'Livelihood (بقاء)، عكس Growth المنجذب للربحية.'},
+    {t:'mc',q:'أنسب نوع وقف لمكافحة الفقر:',o:['الديني','الخيري','الأهلي','النقدي فقط'],a:1,e:'الوقف الخيري يخدم الفقراء مباشرة.'},
+    {t:'mc',q:'الحد الأعلى الشائع لتعريف SMEs في الاتحاد الأوروبي:',o:['100 موظف','200 موظف','250 موظفاً','500 موظف'],a:2,e:'250 في الاتحاد الأوروبي، و500 في أمريكا.'},
+    {t:'mc',q:'مشروع بدأ في مصر وأسّس للبنوك الإسلامية الحديثة رغم قصر عمره:',o:['Mit Ghamr','Tabung Haji','Akhuwat','FINCA'],a:0,e:'Mit Ghamr.'},
+    {t:'mc',q:'تحويل المقترض الأموال إلى مشاريع أكثر خطورة بعد الحصول عليها يسمى:',o:['Adverse selection','Moral hazard','Equity gap','Gharar'],a:1,e:'Moral hazard.'},
+    {t:'mc',q:'الخدمة التي لا تحتاج مبلغ تمويل وتُبنى أجرتها على التكلفة في Islamic MF:',o:['Ujrat','Murabaha','Musharaka','Salam'],a:0,e:'Ujrat أجرة الخدمة، وتُفصل عن مبلغ المال.'},
+    {t:'mc',q:'ما الذي يميّز Islamic VC عن التقليدي؟',o:['لا يحتاج أي تعديل','يحتاج أن تكون طبيعة النشاط وهيكل رأس المال متوافقين مع الشريعة','يعتمد على الفائدة','لا يموّل الشركات الناشئة'],a:1,e:'VC متوافق مع روح الشريعة لكنه يحتاج تعديلات في النشاط والهيكل.'},
+    {t:'mc',q:'في أي نموذج تُدفع الخسارة بنسبة رأس المال؟',o:['Mudaraba','Musharaka','Ijara','Murabaha'],a:1,e:'Musharaka.'}
+  ];
+  var box=document.getElementById('qs'),ps=document.getElementById('ps'),done=0,right=0;
+  function upd(){ps.textContent='SCORE '+right+' / '+done}
+  function build(){
+    box.innerHTML='';done=0;right=0;upd();
+    Q.forEach(function(it,i){
+      var d=document.createElement('div');d.className='q '+it.t;
+      var opts=it.t==='tf'?['صح','خطأ']:it.o;
+      var h='<div class="qt"><span class="qn">'+(i+1)+'.</span>'+it.q+'</div><div class="opts">';
+      opts.forEach(function(o,j){h+='<button type="button" class="opt" data-j="'+j+'">'+o+'</button>'});
+      h+='</div><div class="fb"></div>';d.innerHTML=h;
+      var ans=it.t==='tf'?(it.a?0:1):it.a;
+      var bs=[].slice.call(d.querySelectorAll('.opt')),fb=d.querySelector('.fb');
+      bs.forEach(function(b){b.addEventListener('click',function(){
+        var j=+b.getAttribute('data-j');
+        bs.forEach(function(x){x.disabled=true});
+        bs[ans].classList.add('ok');
+        if(j!==ans)b.classList.add('no');
+        done++;if(j===ans)right++;upd();
+        fb.textContent=it.e;fb.classList.add('show');
+      })});
+      box.appendChild(d);
+    });
+  }
+  document.getElementById('rs').addEventListener('click',build);
+  build();
+})();
+</script>
+
+</body></html>
