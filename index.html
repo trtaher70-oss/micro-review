@@ -1,5 +1,10 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>IEF 411 Midterm Review</title>
+<meta name="description" content="مراجعة منتصف الفصل IEF 411 مع اختبار تدريبي تفاعلي">
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:title" content="IEF 411 Midterm Review">
+<meta property="og:description" content="مراجعة منتصف الفصل مع اختبار تدريبي تفاعلي">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E📘%3C/text%3E%3C/svg%3E">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@600;700;800&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
@@ -139,7 +144,7 @@ footer{padding-block:40px 56px;color:var(--muted);font-size:.85rem;border-top:1p
   <div class="facts">
     <span class="fact">نتيجة الكويز <b>11 من 15</b></span>
     <span class="fact">الأسابيع <b>1–7</b></span>
-    <span class="fact">أسئلة تدريب <b>13</b></span>
+    <span class="fact">أسئلة تدريب <b id="qcount">13</b></span>
   </div>
 </header>
 
@@ -486,10 +491,14 @@ footer{padding-block:40px 56px;color:var(--muted);font-size:.85rem;border-top:1p
     {t:'mc',q:'ما الذي يميّز Islamic VC عن التقليدي؟',o:['لا يحتاج أي تعديل','يحتاج أن تكون طبيعة النشاط وهيكل رأس المال متوافقين مع الشريعة','يعتمد على الفائدة','لا يموّل الشركات الناشئة'],a:1,e:'VC متوافق مع روح الشريعة لكنه يحتاج تعديلات في النشاط والهيكل.'},
     {t:'mc',q:'في أي نموذج تُدفع الخسارة بنسبة رأس المال؟',o:['Mudaraba','Musharaka','Ijara','Murabaha'],a:1,e:'Musharaka.'}
   ];
+  document.getElementById('qcount').textContent=Q.length;
   var box=document.getElementById('qs'),ps=document.getElementById('ps'),done=0,right=0;
-  function upd(){ps.textContent='SCORE '+right+' / '+done}
+  var KEY='ief411_progress_v1',saved={};
+  try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){saved={}}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(saved))}catch(e){}}
+  function upd(){ps.textContent='SCORE '+right+' / '+done+(done===Q.length?' · '+Math.round(right/Q.length*100)+'%':'')}
   function build(){
-    box.innerHTML='';done=0;right=0;upd();
+    box.innerHTML='';done=0;right=0;
     Q.forEach(function(it,i){
       var d=document.createElement('div');d.className='q '+it.t;
       var opts=it.t==='tf'?['صح','خطأ']:it.o;
@@ -498,18 +507,23 @@ footer{padding-block:40px 56px;color:var(--muted);font-size:.85rem;border-top:1p
       h+='</div><div class="fb"></div>';d.innerHTML=h;
       var ans=it.t==='tf'?(it.a?0:1):it.a;
       var bs=[].slice.call(d.querySelectorAll('.opt')),fb=d.querySelector('.fb');
-      bs.forEach(function(b){b.addEventListener('click',function(){
-        var j=+b.getAttribute('data-j');
+      function pick(j){
         bs.forEach(function(x){x.disabled=true});
         bs[ans].classList.add('ok');
-        if(j!==ans)b.classList.add('no');
-        done++;if(j===ans)right++;upd();
+        if(j!==ans)bs[j].classList.add('no');
+        done++;if(j===ans)right++;
         fb.textContent=it.e;fb.classList.add('show');
+      }
+      bs.forEach(function(b){b.addEventListener('click',function(){
+        var j=+b.getAttribute('data-j');
+        saved[i]=j;save();pick(j);upd();
       })});
+      if(saved[i]!==undefined&&bs[saved[i]])pick(saved[i]);
       box.appendChild(d);
     });
+    upd();
   }
-  document.getElementById('rs').addEventListener('click',build);
+  document.getElementById('rs').addEventListener('click',function(){saved={};save();build()});
   build();
 })();
 </script>
